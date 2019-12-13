@@ -7,10 +7,30 @@ const [email, setEmail] = useState("mon@email.fr")
 const [password, setPassword] = useState("monpassw0rd")
 const [name, setName] = useState("James")
 const [lastname, setlastname] = useState("Bond")
+const [flash, setflash] = useState()
+
+const obj = {email, password , name ,lastname}
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user)  
+    fetch("/auth/signup",
+{
+    method:  'POST',
+    headers:  new  Headers({
+        'Content-Type':  'application/json'
+    }),
+    body:  JSON.stringify(obj)
+},
+console.log(fetch.body)
+)
+
+.then(res  =>  res.json()
+)
+.then(
+    res  =>  setflash(res.flash),
+    err  =>  setflash(err.flash)
+)
+  
 }
 const user = {email, password, name, lastname}
   return (
