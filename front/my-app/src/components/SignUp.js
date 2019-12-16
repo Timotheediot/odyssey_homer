@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import TextField from '@material-ui/core/textfield'
+import Button from '@material-ui/core/button'
 import './SignUp.css'
 
 const SignUp = () => {
@@ -35,13 +37,13 @@ console.log(fetch.body)
 const user = {email, password, name, lastname}
   return (
     <div>
-        <h1>{JSON.stringify(user,1,1)}</h1>
+        <h2>{JSON.stringify(user,1,1)}</h2>
         <form onSubmit={handleSubmit} >
-            <input type="email" name="email" onChange={ (e) => setEmail(e.target.value)} placeholder="mail" />
-            <input type="password" name="mypassw0rd" onChange={ (e) => setPassword(e.target.value)} placeholder="password" />
-            <input type="text" name="name" onChange={ (e) => setName(e.target.value)} placeholder="name" />
-            <input type="text" name="lastname" onChange={ (e) => setlastname(e.target.value)} placeholder="lastname"/>
-            <input type="submit" value="Soumettre" />
+            <TextField type="email" name="email" onChange={ (e) => setEmail(e.target.value)} placeholder="mail" />
+            <TextField type="password" name="mypassw0rd" onChange={ (e) => setPassword(e.target.value)} placeholder="password" />
+            <TextField type="text" name="name" onChange={ (e) => setName(e.target.value)} placeholder="name" />
+            <TextField type="text" name="lastname" onChange={ (e) => setlastname(e.target.value)} placeholder="lastname"/>
+            <Button variant="contained" color="primary" type="submit" value="Soumettre">Soumettre</Button>
         </form>
     </div>
   );
